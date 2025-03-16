@@ -16,7 +16,7 @@ def custom_decrypt(encrypted_text, key):
     return ''.join(chr(c) for c in decrypted_chars)
 
 # Example Usage
-plaintext = "chinmyfgbyfgr"
+plaintext = "coder"
 key = generate_key(len(plaintext))  # Generate a key
 
 encrypted_text = custom_encrypt(plaintext, key)
