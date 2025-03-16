@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, jsonify
-import pickle
+import joblib
+
 import os
 import numpy as np
 
 app = Flask(__name__)
 
 # Load the trained model
-model = pickle.load(open("model/ipl_win_predictor.pkl", "rb"))
+model = joblib.load("model/ipl_win_predictor.pkl")
 
 # Home route
 @app.route('/')
@@ -30,5 +31,6 @@ def predict():
         return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
+    # app.run(debug=True)
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
